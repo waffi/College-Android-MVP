@@ -35,10 +35,27 @@ public class BookDatasource implements BookDatasourceInterface {
 
             }
         });
+
+        //new DataAsyncTask<>(callback, getBookList()).execute();//.execute(x); simulate load time x seconds
     }
 
     @Override
-    public void getBookDetail(String title, DataCallback<Book> callback) {
-        new DataAsyncTask<>(callback, (new ArrayList<Book>()).get(0)).execute();//.execute(x); simulate load time 1 seconds
+    public void getBookDetail(String title, final DataCallback<Book> callback) {
+        DataService service = ApiClientInstance.getRetrofitInstance().create(DataService.class);
+
+        Call<Search> call = service.getItemsByTitle(title);
+        call.enqueue(new Callback<Search>() {
+            @Override
+            public void onResponse(Call<Search> call, Response<Search> response) {
+                callback.onDataLoaded(response.body().items.dc.get(0));
+            }
+
+            @Override
+            public void onFailure(Call<Search> call, Throwable t) {
+
+            }
+        });
+
+        //new DataAsyncTask<>(callback, (new ArrayList<Book>()).get(0)).execute();//.execute(x); simulate load time 1 seconds
     }
 }

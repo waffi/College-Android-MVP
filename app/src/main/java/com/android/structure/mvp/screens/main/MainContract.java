@@ -6,9 +6,11 @@ interface MainContract {
 
     interface View extends BaseContract.View {
 
+        void launchBookListActivity();
     }
 
     interface Presenter extends BaseContract.Presenter<View> {
 
+        void onButtonCaseClicked();
     }
 }
