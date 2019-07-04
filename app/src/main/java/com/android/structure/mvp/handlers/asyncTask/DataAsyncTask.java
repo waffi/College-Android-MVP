@@ -1,21 +1,21 @@
-package com.android.structure.mvp.commons;
+package com.android.structure.mvp.handlers.asyncTask;
 
 import android.os.AsyncTask;
 
 /**
  * AsyncTask with Thread.sleep to simulate a network call or background work.
  */
-class WaitAsyncTask<T> extends AsyncTask<Integer, Void, Void> {
+public class DataAsyncTask<T> extends AsyncTask<Integer, Void, Void> {
 
     private final DataCallback<T> callback;
 
     private final T successObject;
 
-    WaitAsyncTask(DataCallback<T> callback) {
+    public DataAsyncTask(DataCallback<T> callback) {
         this(callback, null);
     }
 
-    WaitAsyncTask(DataCallback<T> callback, T successObject) {
+    public DataAsyncTask(DataCallback<T> callback, T successObject) {
         this.callback = callback;
         this.successObject = successObject;
     }

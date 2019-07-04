@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.android.structure.mvp.models.book.Book;
 import com.android.structure.mvp.screens.base.BaseFragment;
-import com.android.structure.mvp.commons.DatasourceFactory;
+import com.android.structure.mvp.datasources.DatasourceFactory;
 import com.android.structure.mvp.R;
 
 public class BookDetailFragment extends BaseFragment<BookDetailContract.Presenter> implements BookDetailContract.View {

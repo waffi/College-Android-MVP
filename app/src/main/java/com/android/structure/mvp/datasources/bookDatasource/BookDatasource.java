@@ -1,5 +1,7 @@
-package com.android.structure.mvp.commons;
+package com.android.structure.mvp.datasources.bookDatasource;
 
+import com.android.structure.mvp.handlers.asyncTask.DataAsyncTask;
+import com.android.structure.mvp.handlers.asyncTask.DataCallback;
 import com.android.structure.mvp.models.book.Book;
 
 import java.util.ArrayList;
@@ -24,12 +26,11 @@ public class BookDatasource implements BookDatasourceInterface {
 
     @Override
     public void getBookList(DataCallback<List<Book>> callback) {
-        new WaitAsyncTask<>(callback, createBookList()).execute(2);
+        new DataAsyncTask<>(callback, createBookList()).execute();//.execute(x); simulate load time x seconds
     }
 
     @Override
     public void getBookDetails(int bookId, DataCallback<Book> callback) {
-        new WaitAsyncTask<>(callback, Book.create(bookId,"Book with id " + bookId, new Date()))
-                .execute(1);
+        new DataAsyncTask<>(callback, Book.create(bookId,"Book with id " + bookId, new Date())).execute();//.execute(x); simulate load time 1 seconds
     }
 }

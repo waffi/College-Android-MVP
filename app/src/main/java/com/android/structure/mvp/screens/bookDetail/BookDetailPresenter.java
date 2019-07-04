@@ -2,9 +2,9 @@ package com.android.structure.mvp.screens.bookDetail;
 
 import com.android.structure.mvp.models.book.Book;
 import com.android.structure.mvp.screens.base.BasePresenter;
-import com.android.structure.mvp.commons.DataCallback;
-import com.android.structure.mvp.commons.BookDatasourceInterface;
-import com.android.structure.mvp.commons.DatasourceError;
+import com.android.structure.mvp.handlers.asyncTask.DataCallback;
+import com.android.structure.mvp.datasources.bookDatasource.BookDatasourceInterface;
+import com.android.structure.mvp.datasources.DatasourceError;
 
 import java.lang.ref.WeakReference;
 import java.text.DateFormat;
