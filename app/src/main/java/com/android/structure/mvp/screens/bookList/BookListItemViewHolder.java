@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.android.structure.mvp.R;
-import com.android.structure.mvp.models.book.Book;
+import com.android.structure.mvp.models.Book;
 
 class BookListItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -40,8 +40,8 @@ class BookListItemViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
         Context context = this.itemView.getContext();
 
-        this.bookNameTextView.setText(item.bookName());
-        this.bookDateTextView.setText(DateFormat.getDateFormat(context).format(item.bookDate()));
+        this.bookNameTextView.setText(item.title);
+        this.bookDateTextView.setText(item.date);
     }
 
     @Override

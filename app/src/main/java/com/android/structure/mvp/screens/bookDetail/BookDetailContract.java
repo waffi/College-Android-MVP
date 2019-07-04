@@ -1,7 +1,7 @@
 package com.android.structure.mvp.screens.bookDetail;
 
 import com.android.structure.mvp.screens.base.BaseContract;
-import com.android.structure.mvp.models.book.Book;
+import com.android.structure.mvp.models.Book;
 
 interface BookDetailContract {
 
@@ -20,7 +20,7 @@ interface BookDetailContract {
 
     interface Presenter extends BaseContract.Presenter<View> {
 
-        void loadBook(int bookId);
+        void loadBook(String title);
 
         void onUpdateButtonClicked();
     }

@@ -1,4 +1,4 @@
-package com.android.structure.mvp.handlers.asyncTask;
+package com.android.structure.mvp.utils.asyncTask;
 
 import android.os.AsyncTask;
 

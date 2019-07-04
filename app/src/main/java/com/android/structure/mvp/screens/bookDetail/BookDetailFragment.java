@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.android.structure.mvp.models.book.Book;
+import com.android.structure.mvp.models.Book;
 import com.android.structure.mvp.screens.base.BaseFragment;
 import com.android.structure.mvp.datasources.DatasourceFactory;
 import com.android.structure.mvp.R;
@@ -45,7 +45,7 @@ public class BookDetailFragment extends BaseFragment<BookDetailContract.Presente
             throw new IllegalArgumentException("Impossible to use BookDetailFragment without an book id");
         }
 
-        this.presenter.loadBook(arguments.getInt(EVENT_ID_BUNDLE_KEY));
+        this.presenter.loadBook(EVENT_ID_BUNDLE_KEY);
     }
 
     @Nullable
@@ -91,7 +91,7 @@ public class BookDetailFragment extends BaseFragment<BookDetailContract.Presente
 
     @Override
     public void displayUpdateBookClickedSnackbar(Book book) {
-        Snackbar.make(this.containerView, String.format("Button Update %s", book.bookName()), Snackbar.LENGTH_SHORT)
+        Snackbar.make(this.containerView, String.format("Button Update %s", book.title), Snackbar.LENGTH_SHORT)
                 .show();
     }
 

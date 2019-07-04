@@ -1,8 +1,8 @@
 package com.android.structure.mvp.screens.bookDetail;
 
-import com.android.structure.mvp.models.book.Book;
+import com.android.structure.mvp.models.Book;
 import com.android.structure.mvp.screens.base.BasePresenter;
-import com.android.structure.mvp.handlers.asyncTask.DataCallback;
+import com.android.structure.mvp.utils.asyncTask.DataCallback;
 import com.android.structure.mvp.datasources.bookDatasource.BookDatasourceInterface;
 import com.android.structure.mvp.datasources.DatasourceError;
 
@@ -20,11 +20,11 @@ class BookDetailPresenter extends BasePresenter<BookDetailContract.View> impleme
     }
 
     @Override
-    public void loadBook(int bookId) {
+    public void loadBook(String title) {
         this.view.setProgressBarVisible(true);
         this.view.setContentViewVisible(false);
 
-        this.bookDatasource.getBookDetails(bookId, new GetBookDetailsDataCallback(this));
+        this.bookDatasource.getBookDetail(title, new GetBookDetailsDataCallback(this));
     }
 
     @Override
@@ -41,8 +41,8 @@ class BookDetailPresenter extends BasePresenter<BookDetailContract.View> impleme
             this.view.setProgressBarVisible(false);
             this.view.setContentViewVisible(true);
 
-            this.view.setBookNameText(book.bookName());
-            this.view.setBookDateText(DateFormat.getDateInstance().format(book.bookDate()));
+            this.view.setBookNameText(book.title);
+            this.view.setBookDateText(book.date);
         }
     }
 

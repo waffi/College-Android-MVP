@@ -1,36 +1,44 @@
 package com.android.structure.mvp.datasources.bookDatasource;
 
-import com.android.structure.mvp.handlers.asyncTask.DataAsyncTask;
-import com.android.structure.mvp.handlers.asyncTask.DataCallback;
-import com.android.structure.mvp.models.book.Book;
+import com.android.structure.mvp.models.Collection;
+import com.android.structure.mvp.models.Search;
+import com.android.structure.mvp.utils.apiHelper.ApiClientInstance;
+import com.android.structure.mvp.utils.apiHelper.DataService;
+import com.android.structure.mvp.utils.asyncTask.DataAsyncTask;
+import com.android.structure.mvp.utils.asyncTask.DataCallback;
+import com.android.structure.mvp.models.Book;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class BookDatasource implements BookDatasourceInterface {
 
-    private static List<Book> createBookList() {
-        List<Book> bookList = new ArrayList<>();
+    @Override
+    public void getBookList(final DataCallback<List<Book>> callback) {
+        DataService service = ApiClientInstance.getRetrofitInstance().create(DataService.class);
 
-        Calendar calendar = Calendar.getInstance();
-        for (int i = 0; i < 20; i++) {
-            String bookName = "Book " + (i + 1);
-            calendar.add(Calendar.DAY_OF_YEAR, 1);
-            bookList.add(Book.create((i + 1),bookName, calendar.getTime()));
-        }
+        Call<Search> call = service.getItems();
+        call.enqueue(new Callback<Search>() {
+            @Override
+            public void onResponse(Call<Search> call, Response<Search> response) {
+                callback.onDataLoaded(response.body().items.dc);
+            }
 
-        return bookList;
+            @Override
+            public void onFailure(Call<Search> call, Throwable t) {
+
+            }
+        });
     }
 
     @Override
-    public void getBookList(DataCallback<List<Book>> callback) {
-        new DataAsyncTask<>(callback, createBookList()).execute();//.execute(x); simulate load time x seconds
-    }
-
-    @Override
-    public void getBookDetails(int bookId, DataCallback<Book> callback) {
-        new DataAsyncTask<>(callback, Book.create(bookId,"Book with id " + bookId, new Date())).execute();//.execute(x); simulate load time 1 seconds
+    public void getBookDetail(String title, DataCallback<Book> callback) {
+        new DataAsyncTask<>(callback, (new ArrayList<Book>()).get(0)).execute();//.execute(x); simulate load time 1 seconds
     }
 }

@@ -3,7 +3,7 @@ package com.android.structure.mvp.screens.bookList;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.android.structure.mvp.models.book.Book;
+import com.android.structure.mvp.models.Book;
 
 import java.util.ArrayList;
 import java.util.List;

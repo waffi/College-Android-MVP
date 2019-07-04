@@ -13,7 +13,7 @@ import android.widget.ProgressBar;
 import com.android.structure.mvp.screens.base.BaseActivity;
 import com.android.structure.mvp.datasources.DatasourceFactory;
 import com.android.structure.mvp.R;
-import com.android.structure.mvp.models.book.Book;
+import com.android.structure.mvp.models.Book;
 import com.android.structure.mvp.screens.bookDetail.BookDetailActivity;
 
 import java.util.List;
@@ -58,10 +58,10 @@ public class BookListActivity extends BaseActivity<BookListContract.Presenter> i
 
     @Override
     public void displayBookClickedSnackbar(Book book) {
-        Snackbar.make(this.recyclerView, String.format("%s clicked", book.bookName()), Snackbar.LENGTH_SHORT)
+        Snackbar.make(this.recyclerView, String.format("%s clicked", book.title), Snackbar.LENGTH_SHORT)
                 .show();
 
-        this.startActivity(BookDetailActivity.getStartingIntent(this.getApplicationContext(), book.id()));
+        this.startActivity(BookDetailActivity.getStartingIntent(this.getApplicationContext(), 0));
     }
 
     @Override

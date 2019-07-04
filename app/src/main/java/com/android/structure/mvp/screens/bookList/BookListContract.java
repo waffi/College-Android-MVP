@@ -1,6 +1,6 @@
 package com.android.structure.mvp.screens.bookList;
 
-import com.android.structure.mvp.models.book.Book;
+import com.android.structure.mvp.models.Book;
 import com.android.structure.mvp.screens.base.BaseContract;
 
 import java.util.List;

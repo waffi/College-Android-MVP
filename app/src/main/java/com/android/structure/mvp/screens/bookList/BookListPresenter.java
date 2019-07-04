@@ -1,8 +1,8 @@
 package com.android.structure.mvp.screens.bookList;
 
-import com.android.structure.mvp.models.book.Book;
+import com.android.structure.mvp.models.Book;
 import com.android.structure.mvp.screens.base.BasePresenter;
-import com.android.structure.mvp.handlers.asyncTask.DataCallback;
+import com.android.structure.mvp.utils.asyncTask.DataCallback;
 import com.android.structure.mvp.datasources.bookDatasource.BookDatasourceInterface;
 import com.android.structure.mvp.datasources.DatasourceError;
 
