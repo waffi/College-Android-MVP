@@ -7,7 +7,5 @@ import java.util.List;
 
 public interface BookDatasourceInterface {
 
-    void getBookList(DataCallback<List<Book>> callback);
-
-    void getBookDetail(String title, DataCallback<Book> callback);
+    void getBookList(DataCallback<List<Book>> callback, int limit);
 }

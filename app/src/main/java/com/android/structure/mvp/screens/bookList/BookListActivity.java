@@ -24,10 +24,6 @@ public class BookListActivity extends BaseActivity<BookListContract.Presenter> i
     private ProgressBar progressBar;
     private RecyclerView recyclerView;
 
-    public static Intent getStartingIntent(Context context) {
-        return new Intent(context, BookListActivity.class);
-    }
-
     @Override
     protected BookListContract.Presenter createPresenter() {
         return new BookListPresenter(DatasourceFactory.bookDatasource());
@@ -47,7 +43,7 @@ public class BookListActivity extends BaseActivity<BookListContract.Presenter> i
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(this.adapter);
 
-        this.presenter.loadData();
+        this.presenter.loadData(getIntent().getIntExtra("limit",0));
     }
 
     @Override

@@ -12,9 +12,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.android.structure.mvp.screens.main.MainActivity">
 
-    <Button
-        android:id="@+id/btn_case_1"
+    <EditText
+        android:id="@+id/txt_limit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="10 Items" />
+        android:ems="10"
+        android:hint="limit"
+        android:inputType="textPersonName"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/btn_limit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get by limit" />
 </LinearLayout>

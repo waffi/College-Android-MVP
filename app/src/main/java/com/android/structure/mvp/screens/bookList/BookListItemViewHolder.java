@@ -40,8 +40,8 @@ class BookListItemViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
         Context context = this.itemView.getContext();
 
-        this.bookNameTextView.setText(item.title);
-        this.bookDateTextView.setText(item.date);
+        this.bookNameTextView.setText(item.title.toString());
+        this.bookDateTextView.setText(item.date.toString());
     }
 
     @Override

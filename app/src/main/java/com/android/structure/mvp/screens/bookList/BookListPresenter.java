@@ -18,11 +18,11 @@ class BookListPresenter extends BasePresenter<BookListContract.View> implements 
     }
 
     @Override
-    public void loadData() {
+    public void loadData(int limit) {
         this.view.setProgressBarVisible(true);
         this.view.setRecyclerViewVisible(false);
 
-        this.bookDatasource.getBookList(new GetBookListDataCallback(this));
+        this.bookDatasource.getBookList(new GetBookListDataCallback(this), limit);
     }
 
     @Override
