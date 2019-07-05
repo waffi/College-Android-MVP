@@ -19,7 +19,6 @@
         </activity>
 
         <activity android:name="com.android.structure.mvp.screens.bookList.BookListActivity"/>
-        <activity android:name="com.android.structure.mvp.screens.bookDetail.BookDetailActivity"/>
     </application>
 
 </manifest>
