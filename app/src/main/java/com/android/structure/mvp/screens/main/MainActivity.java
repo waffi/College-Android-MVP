@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
 
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.btn_limit).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_search).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.onButtonCaseClicked();
@@ -33,10 +33,15 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
     @Override
     public void launchBookListActivity() {
 
+        EditText txt_query = (EditText)findViewById(R.id.txt_title);
         EditText txt_limit = (EditText)findViewById(R.id.txt_limit);
 
+        String title = txt_query.getText().toString().replace(' ','+');
+        int limit = txt_limit.getText().toString().equals("") ? 10 : Integer.parseInt(txt_limit.getText().toString());
+
         Intent intent = new Intent(this.getApplicationContext(), BookListActivity.class);
-        intent.putExtra("limit", Integer.parseInt(txt_limit.getText().toString()));
+        intent.putExtra("title", title);
+        intent.putExtra("limit", limit);
 
         this.startActivity(intent);
     }

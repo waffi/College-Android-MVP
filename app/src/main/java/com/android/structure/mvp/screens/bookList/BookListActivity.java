@@ -43,7 +43,9 @@ public class BookListActivity extends BaseActivity<BookListContract.Presenter> i
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(this.adapter);
 
-        this.presenter.loadData(getIntent().getIntExtra("limit",0));
+        this.presenter.loadData(
+                getIntent().getStringExtra("title"),
+                getIntent().getIntExtra("limit",10));
     }
 
     @Override

@@ -13,6 +13,15 @@
     tools:context="com.android.structure.mvp.screens.main.MainActivity">
 
     <EditText
+        android:id="@+id/txt_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="title"
+        android:inputType="text"
+        android:textAlignment="center" />
+
+    <EditText
         android:id="@+id/txt_limit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,8 +31,8 @@
         android:textAlignment="center" />
 
     <Button
-        android:id="@+id/btn_limit"
+        android:id="@+id/btn_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Get by limit" />
+        android:text="@android:string/search_go" />
 </LinearLayout>

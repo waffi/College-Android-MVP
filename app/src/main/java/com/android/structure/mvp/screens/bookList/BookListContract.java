@@ -20,7 +20,7 @@ interface BookListContract {
 
     interface Presenter extends BaseContract.Presenter<View> {
 
-        void loadData(int limit);
+        void loadData(String title, int limit);
 
         void onBookClicked(Book book);
     }
