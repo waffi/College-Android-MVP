@@ -45,6 +45,7 @@ public class BookListActivity extends BaseActivity<BookListContract.Presenter> i
 
         this.presenter.loadData(
                 getIntent().getStringExtra("title"),
+                getIntent().getStringExtra("collection"),
                 getIntent().getIntExtra("limit",10));
     }
 

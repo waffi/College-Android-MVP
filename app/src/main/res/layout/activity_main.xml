@@ -21,6 +21,11 @@
         android:inputType="text"
         android:textAlignment="center" />
 
+    <Spinner
+        android:id="@+id/spinner_collection"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
     <EditText
         android:id="@+id/txt_limit"
         android:layout_width="match_parent"
